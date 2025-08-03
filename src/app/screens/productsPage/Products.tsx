@@ -213,15 +213,13 @@ export default function Products() {
           <Stack className={"adress-area"}>
             <Box className={"title"}>Our adress</Box>
             <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3643.7808046334035!2d72.10987907663181!3d40.90384437136547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bca33b64a35f83%3A0xa4a9f86fc885c687!2sHaqqulobod%20FOTO%20Center!5e1!3m2!1sru!2sus!4v1753956019140!5m2!1sru!2sus"
-  width="80%"
-  height="450"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-/>
-</Stack>
+              style={{ marginTop: "60px" }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2412.000914375899!2d71.78244634472276!3d40.38823166536772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb834350f7164d%3A0x72d1aebea1fa66ca!2z0KHQv9C10YbQuNCw0LvQuNC30LjRgNC-0LLQsNC90L3QsNGPINCo0LrQvtC70LAg4oSWMg!5e0!3m2!1sru!2s!4v1753939840441!5m2!1sru!2s"
+              width="1320"
+              height="500"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </Stack>
         </Container>
       </div>
     </div>

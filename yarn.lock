@@ -1947,6 +1947,19 @@
     clsx "^2.1.0"
     prop-types "^15.8.1"
 
+"@mui/lab@^5.0.0-alpha.86":
+  version "5.0.0-alpha.177"
+  resolved "https://registry.yarnpkg.com/@mui/lab/-/lab-5.0.0-alpha.177.tgz#a02f43b36d7e204166706f2c27640f378e3d7c88"
+  integrity sha512-bdCxxtNjlWAgN9rtrwlmFydJ1qxA3IIbb6OlomGFsIXw0zGoHomLyjvh72q/R3yUAC0kvSef18cHY1UalLylyQ==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
+    "@mui/base" "5.0.0-beta.40-1"
+    "@mui/system" "^5.18.0"
+    "@mui/types" "~7.2.15"
+    "@mui/utils" "^5.17.1"
+    clsx "^2.1.0"
+    prop-types "^15.8.1"
+
 "@mui/material@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-7.2.0.tgz#957da3b927c67e5a36a026658ffb40c10a3b6b5f"
@@ -2006,7 +2019,7 @@
     csstype "^3.1.3"
     prop-types "^15.8.1"
 
-"@mui/system@^5.17.1":
+"@mui/system@^5.17.1", "@mui/system@^5.18.0":
   version "5.18.0"
   resolved "https://registry.yarnpkg.com/@mui/system/-/system-5.18.0.tgz#e55331203a40584b26c5a855a07949ac8973bfb6"
   integrity sha512-ojZGVcRWqWhu557cdO3pWHloIGJdzVtxs3rk0F9L+x55LsUjcMUVkEhiF7E4TMxZoF9MmIHGGs0ZX3FDLAf0Xw==
@@ -7281,6 +7294,11 @@ mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+moment@^2.29.4:
+  version "2.30.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+  integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -8532,12 +8550,7 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
-react-is@^19.0.0:
-  version "19.1.1"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
-  integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
-
-react-is@^19.1.0:
+react-is@^19.0.0, react-is@^19.1.0:
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.0.tgz#805bce321546b7e14c084989c77022351bbdd11b"
   integrity sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg==
@@ -9641,10 +9654,10 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-swiper@8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.3.1.tgz#ad744c38b86b48c2207d169807e995e70cbce6be"
-  integrity sha512-oASYsulsERlbQVTZ8FjlTDJSN4YZwhp+AkvepOj8EOhgpvxzKoMpWpBPrk7ypkMioQUx6x2NPvkRU0Qv9mpS0A==
+swiper@^8.3.1:
+  version "8.4.7"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.7.tgz#0301d385c3efc8efe8b66a64187edcb30e3067ee"
+  integrity sha512-VwO/KU3i9IV2Sf+W2NqyzwWob4yX9Qdedq6vBtS0rFqJ6Fa5iLUJwxQkuD4I38w0WDJwmFl8ojkdcRFPHWD+2g==
   dependencies:
     dom7 "^4.0.4"
     ssr-window "^4.0.2"
