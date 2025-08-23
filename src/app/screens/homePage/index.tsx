@@ -7,20 +7,23 @@ import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";  
-import { setNewDishes, setPopularDishes } from "./slice";
+import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/data/types/product";
 import { ProductCollection } from "../../../lib/data/enums/product.enum";
 import ProductService from "../../services/ProductService";
+import { Member } from "../../../lib/data/types/member";
+import MemberService from "../../services/MemberService";
 import "../../../css/home.css";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)), 
   setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)), 
+  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)), 
 });
 
 export default function HomePage() {
-  const { setPopularDishes, setNewDishes } = actionDispatch (useDispatch ());
+  const { setPopularDishes, setNewDishes, setTopUsers} = actionDispatch (useDispatch ());
 
   useEffect(() => {
     // Backend server data fetch => Data
@@ -45,11 +48,15 @@ export default function HomePage() {
         order: "createdAt",
         productCollection: ProductCollection.DISH,
       })
-      .then((data) => {
-         console.log("data passed here:", data);
-         setNewDishes(data);
-      })
+      .then((data) => setNewDishes(data))
       .catch((err) => console.log(err));
+
+    const member = new MemberService();
+    member
+      .getTopUsers()
+      .then((data) => setTopUsers(data))
+      .catch((err) => console.log(err));
+      
   }, []);
 
   return (

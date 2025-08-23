@@ -1,51 +1,57 @@
 import React from "react";
 import { Box, Stack, Container } from "@mui/material";
 import Card from "@mui/joy/Card";
-import { CssVarsProvider, Typography } from "@mui/joy";
+import { CssVarsProvider, Typography, AspectRatio } from "@mui/joy";
 import CardOverflow from "@mui/joy/CardOverflow";
 import CardContent from "@mui/joy/CardContent";
 
-const activeUsers = [
-  { memberNick: "Martin", imagePath: "/img/martin.webp" },
-  { memberNick: "Justin", imagePath: "/img/justin.webp" },
-  { memberNick: "Rose", imagePath: "/img/rose.webp" },
-  { memberNick: "Nusret", imagePath: "/img/nusret.webp" },
-];
+/** REDUX **/
+import { createSelector } from "reselect";
+import { useSelector } from "react-redux";
+
+/** MANTIQLAR **/
+import { retrieveTopUsers } from "./selector";
+import { Member } from "../../../lib/data/types/member";
+import { serverApi } from "../../../lib/config";
+
+/** REDUX SLICE & SELECTOR **/
+const topUsersRetriver = createSelector(retrieveTopUsers, (topUsers) => ({
+  topUsers,
+}));
 
 export default function ActiveUsers() {
+  const { topUsers } = useSelector(topUsersRetriver);
   return (
-    <div className="homepage">
-      <div className="active-users-frame">
-        <Container>
-          <Stack className="main">
-            <Box className="category-title">Active User</Box>
-            <Stack className="cards-frame">
-              <CssVarsProvider>
-                {activeUsers.length !== 0 ? (
-                  activeUsers.map((ele, index) => (
-                    <Card key={index} variant="outlined" className="user-card">
+    <div className={"active-users-frame"}>
+      <Container>
+        <Stack className={"main"}>
+          <Box className={"category-title"}>Active Users</Box>
+          <Stack className={"cards-frame"}>
+            <CssVarsProvider>
+              {Array.isArray(topUsers) && topUsers.length > 0 ? (
+                topUsers.map((member: Member) => {
+                  const imagePath = `${serverApi}/${member.memberImage}`;
+                  return (
+                    <Card key={member._id} className="card">
                       <CardOverflow>
-                        <img
-                          className="user-image"
-                          src={ele.imagePath}
-                          alt={ele.memberNick}
-                        />
+                        <AspectRatio ratio="1">
+                          <img src={imagePath} alt="" />
+                        </AspectRatio>
                       </CardOverflow>
-                      <CardContent className="user-card-desc">
-                        <Typography level="body-md">
-                          {ele.memberNick}
-                        </Typography>
-                      </CardContent>
+
+                      <Typography className={"member-nickname"}>
+                        {member.memberNick}
+                      </Typography>
                     </Card>
-                  ))
-                ) : (
-                  <Box className="no-data">No Active Users!</Box>
-                )}
-              </CssVarsProvider>
-            </Stack>
+                  );
+                })
+              ) : (
+                <Box className="no-data">No Active Users Yet!</Box>
+              )}
+            </CssVarsProvider>
           </Stack>
-        </Container>
-      </div>
+        </Stack>
+      </Container>
     </div>
   );
 }
