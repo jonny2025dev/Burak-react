@@ -42,7 +42,6 @@
   border-radius: 18px;
   width: 360px;
   height: 35px;
-
   padding: 8px;
   font-size: 16px;
   box-shadow: 0 4px 4px 0 rgba(212, 212, 212, 0.25);
@@ -105,9 +104,8 @@
 }
 
 .products .list-category-section .product-category .second-button .order-2 {
-  width: 26x;
+  width: 26px;
   height: 76px;
-
   margin-top: 56px;
   display: flex;
   flex-direction: row;
@@ -128,7 +126,6 @@
 .products .product-wrapper .product-card {
   width: 273px;
   height: auto;
-
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -140,7 +137,6 @@
   position: relative;
   width: 273px;
   height: 275px;
-
   border-radius: 0px 50px 0px 0px;
   background-size: cover;
 }
@@ -176,7 +172,6 @@
   position: absolute;
   width: 90px;
   height: 30px;
-
   margin: 10px 0 0 10px;
   display: flex;
   align-items: center;
@@ -198,7 +193,6 @@
   padding: 20px;
   width: 64px;
   height: 46px;
-
   margin-left: 105px;
   margin-top: 217px;
   display: flex;
