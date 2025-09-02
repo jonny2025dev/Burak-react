@@ -40,23 +40,24 @@
 .products .avatar-big-box .search-container .search-input {
   border: 1px solid #fff;
   border-radius: 18px;
-  width: 360px;
+  width: 250px;
   height: 35px;
   padding: 8px;
-  font-size: 16px;
+  font-size: 20px;
   box-shadow: 0 4px 4px 0 rgba(212, 212, 212, 0.25);
   background: #fffcfc;
 }
 
 .products .avatar-big-box .search-container .search-button {
-  height: 35px;
-  margin-left: -88px;
+  height: 32px;
+  width: 106px;
+  margin-left: 370px;
   background: #343434;
   padding: 0 16px;
   border: none;
   border-radius: 20px;
   z-index: 1;
-  position: relative;
+  position: absolute;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 15px;
@@ -120,7 +121,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 15px;
 }
 
 .products .product-wrapper .product-card {
@@ -289,7 +290,7 @@
 
 .products .product-wrapper .no-data {
   width: 100%;
-  height: 300px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
