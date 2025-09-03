@@ -1,6 +1,6 @@
 import TabContext from "@mui/lab/TabContext";
 import { Box, Button, Container, Stack } from "@mui/material";
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import PausedOrders from "./PausedOrders";
@@ -12,7 +12,9 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";  
 import { setPausedOrders, setProcessOrders, setFinishedOrders } from "./slice";
 import "../../../css/order.css";
-import { Order } from "../../../lib/data/types/order";
+import { Order, OrderInquiry } from "../../../lib/data/types/order";
+import { OrderStatus } from "../../../lib/data/enums/order.enum";
+import OrderService from "../../services/OrderService";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -26,12 +28,38 @@ export default function OrdersPage() {
   const { setPausedOrders, setProcessOrders, setFinishedOrders } = 
   actionDispatch(useDispatch());
   const [value, setValue] = useState("1");
-
-/** HENDLERS **/
-
+  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
+    page: 1,
+    limit: 5,
+    orderStatus: OrderStatus.PAUSE,
+  });
+  
+  useEffect(() => {
+    const order = new OrderService();
+  
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
+      .then((data) => setPausedOrders(data))
+      .catch((err) => console.log(err));
+  
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PROCESS })
+      .then((data) => setProcessOrders(data))
+      .catch((err) => console.log(err));
+  
+    order
+      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
+      .then((data) => setFinishedOrders(data))
+      .catch((err) => console.log(err));
+  }, [orderInquiry]);
+  
+  /** HANDLERS **/
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  
+
+
   return (
     <div className="order-page">
       <Container className="order-container">
